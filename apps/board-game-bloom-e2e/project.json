@@ -1,22 +1,22 @@
 {
-  "name": "bgb-e2e",
+  "name": "board-game-bloom-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/bgb-e2e/src",
+  "sourceRoot": "apps/board-game-bloom-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/bgb-e2e/cypress.config.ts",
-        "devServerTarget": "bgb:serve:development",
+        "cypressConfig": "apps/board-game-bloom-e2e/cypress.config.ts",
+        "devServerTarget": "board-game-bloom:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "bgb:serve:production"
+          "devServerTarget": "board-game-bloom:serve:production"
         },
         "ci": {
-          "devServerTarget": "bgb:serve-static"
+          "devServerTarget": "board-game-bloom:serve-static"
         }
       }
     },
@@ -24,10 +24,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/bgb-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/board-game-bloom-e2e/**/*.js"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["bgb"]
+  "implicitDependencies": ["board-game-bloom"]
 }
