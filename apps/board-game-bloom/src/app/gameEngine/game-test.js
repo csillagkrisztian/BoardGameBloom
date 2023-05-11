@@ -12,101 +12,64 @@ import diceRoll from '../../assets/ezgif.com-gif-maker (1).gif';
 
 export default {
   game: {
-    setup: {},
+    setup: {
+      common: {
+        dye8974515012: {},
+        track064848161654: {
+          marker: {
+            markerId: 'marker48565744',
+            playerExclusive: true,
+          },
+        },
+      },
+      player: {
+        marker: {
+          markerId: 'marker48565744',
+          amount: 3,
+        },
+      },
+    },
     components: [
       {
         _id: 'dye8974515012',
         type: 'DYE',
-        componentInfo: {
-          faces: [
-            { _id: 'face1215415', value: 1 },
-            { _id: 'face1267615', value: 2 },
-            { _id: 'face2333315', value: 3 },
-            { _id: 'face1215553', value: 4 },
-            { _id: 'face1287978', value: 5 },
-            { _id: 'face1114556', value: 6 },
-          ],
-        },
+        faces: [
+          { _id: 'face1215415', value: 1 },
+          { _id: 'face1267615', value: 2 },
+          { _id: 'face2333315', value: 3 },
+          { _id: 'face1215553', value: 4 },
+          { _id: 'face1287978', value: 5 },
+          { _id: 'face1114556', value: 6 },
+        ],
       },
       {
         _id: 'track064848161654',
         type: 'TRACK',
-        componentInfo: {
-          spaces: [
-            { value: 'start' },
-            { value: 1 },
-            { value: 2 },
-            {
-              value: 3,
-              occupied: [
-                {
-                  player: 1,
-                  marker: meeple1,
-                },
-              ],
-            },
-            {
-              value: 4,
-              occupied: [
-                {
-                  player: 2,
-                  marker: meeple2,
-                },
-                {
-                  player: 3,
-                  marker: meeple3,
-                },
-              ],
-            },
-            {
-              value: 5,
-              occupied: [
-                {
-                  player: 1,
-                  marker: meeple1,
-                },
-                {
-                  player: 3,
-                  marker: meeple3,
-                },
-                {
-                  player: 4,
-                  marker: meeple4,
-                },
-              ],
-            },
-            {
-              value: 6,
-              occupied: [
-                {
-                  player: 1,
-                  marker: meeple1,
-                },
-                {
-                  player: 3,
-                  marker: meeple3,
-                },
-                {
-                  player: 4,
-                  marker: meeple4,
-                },
-                {
-                  player: 2,
-                  marker: meeple2,
-                },
-              ],
-            },
-            { value: 7 },
-            { value: 8 },
-            { value: 9 },
-          ],
-        },
+        spaces: [
+          { _id: 'space61231256', value: 'start', startSpace: true },
+          { _id: 'space62231256', value: 1 },
+          { _id: 'space63231256', value: 2 },
+          { _id: 'space64231256', value: 3 },
+          { _id: 'space65231256', value: 4 },
+          { _id: 'space66231256', value: 5 },
+          { _id: 'space67231256', value: 6 },
+          { _id: 'space68231256', value: 7 },
+          { _id: 'space69231256', value: 8 },
+          { _id: 'space610231256', value: 9 },
+          { _id: 'space610231257', value: 10 },
+          { _id: 'space610231257', value: 'finish' },
+        ],
+      },
+      {
+        _id: 'marker48565744',
+        type: 'MARKER',
       },
     ],
     moves: [],
   },
   layout: {
     track064848161654: {
+      trackStyles: {},
       sections: [{}],
       spaceStyles: {
         width: 50,
@@ -125,5 +88,10 @@ export default {
       },
       rollingAnimation: diceRoll,
     },
+    marker48565744: {
+      custom: true,
+      default: [],
+    },
   },
+  players: [],
 };
