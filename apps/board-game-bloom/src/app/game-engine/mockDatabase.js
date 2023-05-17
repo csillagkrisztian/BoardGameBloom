@@ -1,15 +1,3 @@
-import meeple1 from '../../assets/meeple1.png';
-import meeple2 from '../../assets/meeple2.png';
-import meeple3 from '../../assets/meeple3.png';
-import meeple4 from '../../assets/meeple4.png';
-import dyeface1 from '../../assets/dice-six-faces-one.png';
-import dyeface2 from '../../assets/dice-six-faces-two.png';
-import dyeface3 from '../../assets/dice-six-faces-three.png';
-import dyeface4 from '../../assets/dice-six-faces-four.png';
-import dyeface5 from '../../assets/dice-six-faces-five.png';
-import dyeface6 from '../../assets/dice-six-faces-six.png';
-import diceRoll from '../../assets/ezgif.com-gif-maker (1).gif';
-
 export default {
   game: {
     setup: {
@@ -17,15 +5,16 @@ export default {
         dye8974515012: {},
         track064848161654: {
           marker: {
-            markerId: 'marker48565744',
+            componentId: 'marker48565744',
             playerExclusive: true,
           },
         },
       },
-      player: {
-        marker: {
-          markerId: 'marker48565744',
-          amount: 3,
+      players: {
+        all: {
+          marker48565744: {
+            amount: 3,
+          },
         },
       },
     },
@@ -79,19 +68,18 @@ export default {
     },
     dye8974515012: {
       faces: {
-        face1215415: dyeface1,
-        face1267615: dyeface2,
-        face2333315: dyeface3,
-        face1215553: dyeface4,
-        face1287978: dyeface5,
-        face1114556: dyeface6,
+        face1215415: 'dyeface1',
+        face1267615: 'dyeface2',
+        face2333315: 'dyeface3',
+        face1215553: 'dyeface4',
+        face1287978: 'dyeface5',
+        face1114556: 'dyeface6',
       },
-      rollingAnimation: diceRoll,
+      rollingAnimation: 'diceRoll',
     },
     marker48565744: {
       custom: true,
       default: [],
     },
   },
-  players: [],
 };
