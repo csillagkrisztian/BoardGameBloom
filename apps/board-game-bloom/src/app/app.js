@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import BoardGame from './game-engine';
+import BoardGame from './game-engine/game-engine';
 import MouseMagnet from './editor/mouse-magnet';
-import getComponent from './game-engine/component-factory';
+import getComponent from './game-engine/layout/component-factory/component-factory';
 
 const GameRoute = (props) => {
   const [playerID, setPlayerID] = useState(null);
@@ -12,14 +12,14 @@ const GameRoute = (props) => {
         Select a player ID:
         <button
           onClick={() => {
-            setPlayerID(0);
+            setPlayerID('0');
           }}
         >
           0
         </button>
         <button
           onClick={() => {
-            setPlayerID(1);
+            setPlayerID('1');
           }}
         >
           1

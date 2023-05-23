@@ -1,4 +1,4 @@
-import { generateId } from '../../../utils';
+import { generateId } from '../../../../utils';
 
 const setupStartSpace = (players, { marker }) => {
   const _id = generateId();
@@ -16,7 +16,7 @@ const setupStartSpace = (players, { marker }) => {
   }
 };
 
-const decorateTrack = ({ players, component: track, content }) => {
+export default ({ players, component: track, content }) => {
   const decoratedSpaces = track.spaces.map((space) => {
     if (space.startSpace) {
       return {
@@ -28,14 +28,3 @@ const decorateTrack = ({ players, component: track, content }) => {
   });
   return { ...track, spaces: decoratedSpaces };
 };
-
-const decorateComponent = (componentInfo) => {
-  switch (componentInfo.component.type) {
-    case 'TRACK':
-      return decorateTrack(componentInfo);
-    default:
-      return null;
-  }
-};
-
-export default decorateComponent;

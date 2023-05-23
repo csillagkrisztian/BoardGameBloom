@@ -1,13 +1,16 @@
 import { generateId } from '../../utils';
 import initialState from '../mockDatabase';
-import decorate from './component-decorator';
-import generateMoves from './moves-generator';
+import decorate from './component-decorator/component-decorator';
+import generateMoves from './moves-generator/moves-generator';
 
 const Game = {
   setup: ({ ctx }) => {
     const { setup, components } = initialState.game;
     const players = setupPlayers(ctx.numPlayers, setup.players);
-    return { players, ...setupGame(players, setup.common, components) };
+    return {
+      players,
+      ...setupGame(players, setup.common, components),
+    };
   },
 };
 
@@ -16,8 +19,7 @@ const setupGame = (players, setup, components) => {
     const component = components.find((component) => component._id === key);
     const componentInfo = { players, component, content: value };
     return {
-      ...acc,
-      [key]: decorate(componentInfo),
+      components: { ...acc.components, [key]: decorate(componentInfo) },
       moves: { ...acc.moves, ...generateMoves(componentInfo) },
     };
   }, {});

@@ -1,3 +1,11 @@
+import dyeface1 from '../../assets/dye-face-1.png';
+import dyeface2 from '../../assets/dye-face-2.png';
+import dyeface3 from '../../assets/dye-face-3.png';
+import dyeface4 from '../../assets/dye-face-4.png';
+import dyeface5 from '../../assets/dye-face-5.png';
+import dyeface6 from '../../assets/dye-face-6.png';
+import diceRoll from '../../assets/dice-roll.gif';
+
 export default {
   game: {
     setup: {
@@ -56,8 +64,10 @@ export default {
     ],
     moves: [],
   },
-  layout: {
-    track064848161654: {
+  layout: [
+    {
+      _id: 'dye1',
+      componentId: 'track064848161654',
       trackStyles: {},
       sections: [{}],
       spaceStyles: {
@@ -66,20 +76,24 @@ export default {
         direction: 'column',
       },
     },
-    dye8974515012: {
+    {
+      _id: 'track1',
+      componentId: 'dye8974515012',
       faces: {
-        face1215415: 'dyeface1',
-        face1267615: 'dyeface2',
-        face2333315: 'dyeface3',
-        face1215553: 'dyeface4',
-        face1287978: 'dyeface5',
-        face1114556: 'dyeface6',
+        face1215415: dyeface1,
+        face1267615: dyeface2,
+        face2333315: dyeface3,
+        face1215553: dyeface4,
+        face1287978: dyeface5,
+        face1114556: dyeface6,
       },
-      rollingAnimation: 'diceRoll',
+      rollingAnimation: diceRoll,
     },
-    marker48565744: {
+    {
+      _id: 'marker1',
+      componentId: 'marker48565744',
       custom: true,
       default: [],
     },
-  },
+  ],
 };

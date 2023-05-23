@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "serve": "node -r esm apps/board-game-bloom/src/bgio-server/index.js"
+    "serve": "node -r esm apps/board-game-bloom/src/bgio-server/bgio-server.js"
   },
   "private": true,
   "dependencies": {

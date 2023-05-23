@@ -1,5 +1,5 @@
 const { Server, Origins } = require('boardgame.io/server');
-const Ludo = require('../app/game-engine/game-generator');
+const Ludo = require('../app/game-engine/game-engine');
 
 const server = Server({
   games: [Ludo],
