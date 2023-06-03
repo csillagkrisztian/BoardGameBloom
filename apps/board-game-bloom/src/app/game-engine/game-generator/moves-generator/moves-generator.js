@@ -1,12 +1,39 @@
-const generateTrackMoves = (players, content) => {};
+const defaultDyeMoves = {
+  rollDye: ({ G, ctx, playerID, random }, args) => {
+    const roll = random.D6();
+    G.dye = roll;
+  },
+};
+const defaultMarkerMoves = {};
 
-const generateMoves = ({ players, component, content }) => {
-  switch (component.type) {
-    case 'TRACK':
-      return generateTrackMoves(players, content);
-    default:
-      return {};
-  }
+const setupDefaultMoves = (components) => {
+  const types = components.map((component) => component.type);
+  const uniqueTypes = [...new Set(types)];
+
+  return uniqueTypes.reduce((acc, type) => {
+    switch (type) {
+      case 'MARKER':
+        return {
+          ...acc,
+          ...defaultMarkerMoves,
+        };
+      case 'DYE':
+        return {
+          ...acc,
+          ...defaultDyeMoves,
+        };
+      default:
+        return acc;
+    }
+  }, {});
 };
 
-export default generateMoves;
+const generateCustomMoves = (components) => {};
+
+export default (components) => {
+  console.log('components', components);
+  return {
+    ...setupDefaultMoves(components),
+    ...generateCustomMoves(components),
+  };
+};

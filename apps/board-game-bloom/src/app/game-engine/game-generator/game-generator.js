@@ -1,18 +1,7 @@
 import { generateId } from '../../utils';
 import initialState from '../mockDatabase';
 import decorate from './component-decorator/component-decorator';
-import generateMoves from './moves-generator/moves-generator';
-
-const Game = {
-  setup: ({ ctx }) => {
-    const { setup, components } = initialState.game;
-    const players = setupPlayers(ctx.numPlayers, setup.players);
-    return {
-      players,
-      ...setupGame(players, setup.common, components),
-    };
-  },
-};
+import setupMoves from './moves-generator/moves-generator';
 
 const setupGame = (players, setup, components) => {
   return Object.entries(setup).reduce((acc, [key, value]) => {
@@ -20,7 +9,6 @@ const setupGame = (players, setup, components) => {
     const componentInfo = { players, component, content: value };
     return {
       components: { ...acc.components, [key]: decorate(componentInfo) },
-      moves: { ...acc.moves, ...generateMoves(componentInfo) },
     };
   }, {});
 };
@@ -63,4 +51,18 @@ const setupPlayers = (playerCount, playerSetup) => {
   }
   return players;
 };
+
+const { setup, components } = initialState.game;
+console.log('initialState', initialState);
+const Game = {
+  setup: ({ ctx }) => {
+    const players = setupPlayers(ctx.numPlayers, setup.players);
+    return {
+      players,
+      ...setupGame(players, setup.common, components),
+    };
+  },
+  moves: setupMoves(components),
+};
+
 export default Game;

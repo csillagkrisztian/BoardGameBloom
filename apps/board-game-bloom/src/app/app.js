@@ -3,6 +3,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import BoardGame from './game-engine/game-engine';
 import MouseMagnet from './editor/mouse-magnet';
 import getComponent from './game-engine/layout/component-factory/component-factory';
+import HexagonsBeBest from '../test-stuff/hexagonsAreBestagons';
 
 const GameRoute = (props) => {
   const [playerID, setPlayerID] = useState(null);
@@ -36,6 +37,7 @@ export function App() {
     <div>
       <Routes>
         <Route path="/" element={<GameRoute />} />
+        <Route path="/hex" element={<HexagonsBeBest />} />
       </Routes>
       {/* END: routes */}
     </div>
